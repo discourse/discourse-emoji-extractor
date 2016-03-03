@@ -22,9 +22,6 @@ module Emoji
         code = ttf_name.gsub(/u/, '').gsub('_', '-').gsub(/\.0$/, '').downcase
         name = emoji_char_codes[code]
 
-        if code =~ /1f1e8/
-          puts code
-        end
         if name
           filename = "#{name}.#{bitmap.type}"
           File.write(images_path.join(filename), bitmap.data.read)

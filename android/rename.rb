@@ -5,9 +5,9 @@ require 'json'
 json = JSON.parse(File.read('../emoji.json'))
 
 json.each do |name, v|
-  code = "uni#{v['unicode']}".sub(/\-/, '_uni')
+  code = "emoji_u#{v['unicode'].gsub(/\-/, '_')}"
 
-  if File.exist?("ExtractedEmojis/#{code}.png")
-    FileUtils.cp("ExtractedEmojis/#{code}.png", "output/#{name}.png")
+  if File.exist?("128x128/#{code}.png")
+    FileUtils.cp("128x128/#{code}.png", "output/#{name}.png")
   end
 end
